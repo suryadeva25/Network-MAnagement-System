@@ -1,0 +1,17 @@
+﻿module multiple-errors {
+    namespace "http://example.com/ns/multiple-errors"
+    prefix me
+
+    description Multiple errors example
+
+    container test {
+        leaf example1 {
+            type string
+            description "Missing semicolon on type"
+        }
+        
+        leaf example2 {
+            type string;
+            description Missing quotes
+        }
+    }

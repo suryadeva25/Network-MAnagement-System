@@ -1,0 +1,65 @@
+module example {
+    namespace "http://example.com/ns/example";
+    prefix ex;
+
+    description "A sample YANG module for demonstration";
+
+    container system {
+        description "System configuration container";
+        
+        leaf hostname {
+            type string;
+            mandatory true;
+            description "System hostname";
+        }
+        
+        leaf-list dns-servers {
+            type string;
+            description "DNS servers list";
+        }
+        
+        container services {
+            description "System services";
+            
+            list service {
+                key "name";
+                description "Service configuration";
+                
+                leaf name {
+                    type string;
+                    description "Service name";
+                }
+                
+                leaf enabled {
+                    type boolean;
+                    default true;
+                    description "Service enabled flag";
+                }
+            }
+        }
+    }
+    
+    container interfaces {
+        description "Network interfaces";
+        
+        list interface {
+            key "name";
+            description "Interface configuration";
+            
+            leaf name {
+                type string;
+                description "Interface name";
+            }
+            
+            leaf enabled {
+                type boolean;
+                default true;
+            }
+            
+            leaf mtu {
+                type uint16;
+                default 1500;
+            }
+        }
+    }
+}

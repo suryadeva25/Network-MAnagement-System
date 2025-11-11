@@ -1,0 +1,90 @@
+{
+    "nodes": [
+        {
+            "children": [
+                {
+                    "name": "hostname",
+                    "description": "System hostname",
+                    "data-type": "string",
+                    "type": "leaf",
+                    "mandatory": true
+                },
+                {
+                    "name": "dns-servers",
+                    "description": "DNS servers list",
+                    "data-type": "string",
+                    "type": "leaf-list",
+                    "mandatory": false
+                },
+                {
+                    "children": [{
+                        "children": [
+                            {
+                                "name": "name",
+                                "description": "Service name",
+                                "data-type": "string",
+                                "type": "leaf",
+                                "mandatory": false
+                            },
+                            {
+                                "name": "enabled",
+                                "description": "Service enabled flag",
+                                "data-type": "boolean",
+                                "type": "leaf",
+                                "mandatory": false
+                            }
+                        ],
+                        "name": "service",
+                        "description": "Service configuration",
+                        "type": "list",
+                        "mandatory": false
+                    }],
+                    "name": "services",
+                    "description": "System services",
+                    "type": "container",
+                    "mandatory": false
+                }
+            ],
+            "name": "system",
+            "description": "System configuration container",
+            "type": "container",
+            "mandatory": false
+        },
+        {
+            "children": [{
+                "children": [
+                    {
+                        "name": "name",
+                        "description": "Interface name",
+                        "data-type": "string",
+                        "type": "leaf",
+                        "mandatory": false
+                    },
+                    {
+                        "name": "enabled",
+                        "data-type": "boolean",
+                        "type": "leaf",
+                        "mandatory": false
+                    },
+                    {
+                        "name": "mtu",
+                        "data-type": "uint16",
+                        "type": "leaf",
+                        "mandatory": false
+                    }
+                ],
+                "name": "interface",
+                "description": "Interface configuration",
+                "type": "list",
+                "mandatory": false
+            }],
+            "name": "interfaces",
+            "description": "Network interfaces",
+            "type": "container",
+            "mandatory": false
+        }
+    ],
+    "prefix": "ex",
+    "module": "example",
+    "namespace": "http://example.com/ns/example"
+}
